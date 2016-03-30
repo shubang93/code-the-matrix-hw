@@ -108,11 +108,11 @@ your_answer_c_BA = [[4,2,1,-1],[4,2,1,-1],[0,0,0,0],[0,0,0,0]]
 your_answer_d_AB = [[0,3,0,4],[0,4,0,1],[0,4,0,4],[0,-6,0,-1]]
 your_answer_d_BA = [[0,11,0,-2],[0,0,0,0],[0,0,0,0],[1,5,-2,3]]
 
-your_answer_e_AB = [[],[],[],[]]
-your_answer_e_BA = [[],[],[],[]]
+your_answer_e_AB = [[0,3,0,8],[0,-9,0,2],[0,0,0,8],[0,15,0,-2]]
+your_answer_e_BA = [[-2,12,4,-10],[0,0,0,0],[0,0,0,0],[-3,-15,6,-9]]
 
-your_answer_f_AB = [[],[],[],[]]
-your_answer_f_BA = [[],[],[],[]]
+your_answer_f_AB = [[-4,4,2,-3],[-1,10,-4,9],[-4,8,8,0],[1,12,4,-15]]
+your_answer_f_BA = [[-4,-2,-1,1],[2,10,-4,6],[8,8,8,0],[-3,18,6,-15]]
 
 
 
@@ -241,7 +241,7 @@ def vM_mat_mat_mult(A, B):
 
 
 ## 16: (Problem 16) Buttons
-from solver import solve
+#from solver import solve
 from GF2 import one
 
 def D(n): return {(i,j) for i in range(n) for j in range(n)}
