@@ -182,7 +182,7 @@ def matrix_matrix_mul(A, B):
     True
     """
     assert A.D[1] == B.D[0]
-    pass
+    return Mat((A.D[0], B.D[1]), {(r_,c_):sum([A[r_,com]*B[com,c_] for com in A.D[1]]) for r_ in A.D[0] for c_ in B.D[1]})
 
 ################################################################################
 
