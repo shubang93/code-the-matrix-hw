@@ -4,6 +4,7 @@ coursera = 1
 
 # Copyright 2013 Philip N. Klein
 from vec import Vec
+from matutil import mat2coldict
 
 #Test your Mat class over R and also over GF(2).  The following tests use only R.
 
@@ -137,7 +138,8 @@ def vector_matrix_mul(v, M):
     True
     """
     assert M.D[0] == v.D
-    pass
+    coldict = mat2coldict(M)
+    return Vec(M.D[1], {key:v*coldict[key] for key in M.D[0]})
 
 def matrix_vector_mul(M, v):
     """

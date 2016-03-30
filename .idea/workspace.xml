@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e4d57ac0-0ef8-4879-a3a3-605b86d89298" name="Default" comment="" />
+    <list default="true" id="e4d57ac0-0ef8-4879-a3a3-605b86d89298" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mat.py" afterPath="$PROJECT_DIR$/mat.py" />
+    </list>
     <ignored path="matrix.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,12 +45,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mat.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mat.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mat.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.88235295">
-              <caret line="128" column="8" selection-start-line="128" selection-start-column="8" selection-end-line="128" selection-end-column="8" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="128" column="27" selection-start-line="128" selection-start-column="27" selection-end-line="128" selection-end-column="27" />
+              <folding>
+                <element signature="e#156#175#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="matutil.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/matutil.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.2408088">
+              <caret line="45" column="15" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="15" />
+              <folding>
+                <element signature="e#33#52#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -138,14 +154,6 @@
               <option name="myItemId" value="matrix" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 3.5.1 (/Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5) &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -169,26 +177,7 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Python tests.Doctest transpose">
-    <configuration default="false" name="Doctest equal" type="tests" factoryName="Doctests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="matrix" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mat.py" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="equal" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_FUNCTION" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Doctest vector_matrix_mul">
     <configuration default="false" name="Doctest setitem" type="tests" factoryName="Doctests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -259,6 +248,25 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mat.py" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="transpose" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_FUNCTION" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Doctest vector_matrix_mul" type="tests" factoryName="Doctests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="matrix" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mat.py" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="vector_matrix_mul" />
       <option name="FOLDER_NAME" value="" />
       <option name="TEST_TYPE" value="TEST_FUNCTION" />
       <option name="PATTERN" value="" />
@@ -534,19 +542,19 @@
       <item index="5" class="java.lang.String" itemvalue="Python.random" />
       <item index="6" class="java.lang.String" itemvalue="Python.The_Vector_problems" />
       <item index="7" class="java.lang.String" itemvalue="Python tests.politics_lab" />
-      <item index="8" class="java.lang.String" itemvalue="Python tests.Doctest equal" />
-      <item index="9" class="java.lang.String" itemvalue="Python tests.Doctest setitem" />
-      <item index="10" class="java.lang.String" itemvalue="Python tests.Doctest add" />
-      <item index="11" class="java.lang.String" itemvalue="Python tests.Doctest scalar_mul" />
-      <item index="12" class="java.lang.String" itemvalue="Python tests.Doctest transpose" />
+      <item index="8" class="java.lang.String" itemvalue="Python tests.Doctest setitem" />
+      <item index="9" class="java.lang.String" itemvalue="Python tests.Doctest add" />
+      <item index="10" class="java.lang.String" itemvalue="Python tests.Doctest scalar_mul" />
+      <item index="11" class="java.lang.String" itemvalue="Python tests.Doctest transpose" />
+      <item index="12" class="java.lang.String" itemvalue="Python tests.Doctest vector_matrix_mul" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Doctest transpose" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Doctest scalar_mul" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Doctest add" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Doctest setitem" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Doctest equal" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Doctest vector_matrix_mul" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Doctest transpose" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Doctest scalar_mul" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Doctest add" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Doctest setitem" />
       </list>
     </recent_temporary>
   </component>
@@ -576,9 +584,6 @@
     <history-entry file="Doctest_equal - 2016.03.29 at 20h 15m 38s.xml">
       <configuration name="Doctest equal" configurationId="tests" />
     </history-entry>
-    <history-entry file="Doctest_getitem - 2016.03.29 at 20h 09m 38s.xml">
-      <configuration name="Doctest getitem" configurationId="tests" />
-    </history-entry>
     <history-entry file="Doctest_scalar_mul - 2016.03.29 at 20h 24m 59s.xml">
       <configuration name="Doctest scalar_mul" configurationId="tests" />
     </history-entry>
@@ -591,8 +596,11 @@
     <history-entry file="Doctest_transpose - 2016.03.29 at 20h 29m 29s.xml">
       <configuration name="Doctest transpose" configurationId="tests" />
     </history-entry>
-    <history-entry file="Doctest_vec_sum - 2016.03.09 at 21h 59m 17s.xml">
-      <configuration name="Doctest vec_sum" configurationId="tests" />
+    <history-entry file="Doctest_vector_matrix_mul - 2016.03.29 at 21h 11m 13s.xml">
+      <configuration name="Doctest vector_matrix_mul" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Doctest_vector_matrix_mul - 2016.03.29 at 21h 13m 03s.xml">
+      <configuration name="Doctest vector_matrix_mul" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -604,7 +612,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -921,9 +929,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mat.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.88235295">
-          <caret line="128" column="8" selection-start-line="128" selection-start-column="8" selection-end-line="128" selection-end-column="8" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="128" column="27" selection-start-line="128" selection-start-column="27" selection-end-line="128" selection-end-column="27" />
+          <folding>
+            <element signature="e#156#175#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/matutil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2408088">
+          <caret line="45" column="15" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="15" />
+          <folding>
+            <element signature="e#33#52#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
