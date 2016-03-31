@@ -251,7 +251,7 @@ def vM_mat_mat_mult(A, B):
 
 
 ## 16: (Problem 16) Buttons
-#from solver import solve
+from solver import solve
 from GF2 import one
 
 def D(n): return {(i,j) for i in range(n) for j in range(n)}
@@ -269,26 +269,30 @@ b1=Vec(D(9),{(7, 8):one,(7, 7):one,(6, 2):one,(3, 7):one,(2, 5):one,(8, 5):one,(
 
 
 #Solution given by solver.
-x1 = ...
+A1= matutil.coldict2mat(button_vectors(9))
+x1 = solve(A1, b1)
 
 #residual
-r1 = ...
+r1 = (b1-A1*x1)
+print(r1)
 
 #Is x1 really a solution? Assign True if yes, False if no.
-is_good1 = ...
+is_good1 = True
 
 ## PART 2
 
 b2=Vec(D(9), {(3,4):one, (6,7):one})
 
 #Solution given by solver
-x2 = ...
+A2 = matutil.coldict2mat(button_vectors(9))
+x2 = solve(A2, b2)
 
 #residual
-r2 = ...
+r2 = (b2-A2*x2)
+print(r2)
 
 #Is it really a solution? Assign True if yes, False if no.
-is_good2 = ...
+is_good2 = False
 
 
 
