@@ -235,14 +235,18 @@ def dot_product_vec_mat_mult(v, M):
 # You are also allowed to use the matutil module
 def Mv_mat_mat_mult(A, B):
     assert A.D[1] == B.D[0]
-    pass
+    B_cd = matutil.mat2coldict(B)
+    mul_colDict = {col_labels:A*B_cd[col_labels] for col_labels in B.D[1]}
+    return matutil.coldict2mat(mul_colDict)
 
 
 
 ## 15: (Problem 15) Vector-matrix matrix-matrix multiply
 def vM_mat_mat_mult(A, B):
     assert A.D[1] == B.D[0]
-    pass
+    A_rd = matutil.mat2rowdict(A)
+    mul_rowDict = {row_label:A_rd[row_label]*B for row_label in A.D[0]}
+    return matutil.rowdict2mat(mul_rowDict)
 
 
 
