@@ -117,15 +117,15 @@ your_answer_f_BA = [[-4,-2,-1,1],[2,10,-4,6],[8,8,8,0],[-3,18,6,-15]]
 
 
 ## 9: (Problem 9) Column-vector and row-vector matrix multiplication
-column_row_vector_multiplication1 = Vec({0, 1}, {...})
+column_row_vector_multiplication1 = Vec({0, 1}, {0:13, 1:20})
 
-column_row_vector_multiplication2 = Vec({0, 1, 2}, {...})
+column_row_vector_multiplication2 = Vec({0, 1, 2}, {0:24, 1:11, 2:4})
 
-column_row_vector_multiplication3 = Vec({0, 1, 2, 3}, {...})
+column_row_vector_multiplication3 = Vec({0, 1, 2, 3}, {0:4, 1:8, 2:11, 3:3})
 
-column_row_vector_multiplication4 = Vec({0,1}, {...})
+column_row_vector_multiplication4 = Vec({0,1}, {0:30, 1:16})
 
-column_row_vector_multiplication5 = Vec({0, 1, 2}, {...})
+column_row_vector_multiplication5 = Vec({0, 1, 2}, {0:-3, 1:1, 2:9})
 
 
 
@@ -151,7 +151,7 @@ def lin_comb_mat_vec_mult(M, v):
     True
     '''
     assert(M.D[1] == v.D)
-    pass
+    return Vec(M.D[0], {r:sum([v[c]*M[r,c] for c in M.D[1]]) for r in M.D[0]})
 
 
 
@@ -176,7 +176,7 @@ def lin_comb_vec_mat_mult(v, M):
       True
     '''
     assert(v.D == M.D[0])
-    pass
+    return Vec(M.D[1], {c:sum([v[r]*M[r,c] for r in M.D[0]]) for c in M.D[1]})
 
 
 
