@@ -4,6 +4,7 @@ coursera = 1
 
 from mat import Mat
 from vec import Vec
+import matutil
 
 
 
@@ -151,8 +152,9 @@ def lin_comb_mat_vec_mult(M, v):
     True
     '''
     assert(M.D[1] == v.D)
-    return Vec(M.D[0], {r:sum([v[c]*M[r,c] for c in M.D[1]]) for r in M.D[0]})
-
+    colDict = matutil.mat2coldict(M)
+    #return Vec(M.D[0], {r:sum([v[c]*M[r,c] for c in M.D[1]]) for r in M.D[0]})
+    return sum([v[k]*colDict[k] for k in v.D])
 
 
 ## 11: (Problem 11) Linear-combinations vector-matrix multiply
@@ -176,7 +178,9 @@ def lin_comb_vec_mat_mult(v, M):
       True
     '''
     assert(v.D == M.D[0])
-    return Vec(M.D[1], {c:sum([v[r]*M[r,c] for r in M.D[0]]) for c in M.D[1]})
+    rowDict = matutil.mat2rowdict(M)
+    return sum([v[k]*rowDict[k] for k in v.D])
+    #return Vec(M.D[1], {c:sum([v[r]*M[r,c] for r in M.D[0]]) for c in M.D[1]})
 
 
 
@@ -199,7 +203,8 @@ def dot_product_mat_vec_mult(M, v):
     True
     '''
     assert(M.D[1] == v.D)
-    pass
+    rowDict = matutil.mat2rowdict(M)
+    return Vec(M.D[0], {k:v*rowDict[k] for k in M.D[0]})
 
 
 
@@ -221,7 +226,8 @@ def dot_product_vec_mat_mult(v, M):
       True
       '''
     assert(v.D == M.D[0])
-    pass
+    colDict = matutil.mat2coldict(M)
+    return Vec(M.D[1], {k:v*colDict[k] for k in M.D[1]})
 
 
 
