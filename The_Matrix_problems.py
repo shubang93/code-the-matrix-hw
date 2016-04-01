@@ -274,7 +274,6 @@ x1 = solve(A1, b1)
 
 #residual
 r1 = (b1-A1*x1)
-print(r1)
 
 #Is x1 really a solution? Assign True if yes, False if no.
 is_good1 = True
@@ -289,7 +288,6 @@ x2 = solve(A2, b2)
 
 #residual
 r2 = (b2-A2*x2)
-print(r2)
 
 #Is it really a solution? Assign True if yes, False if no.
 is_good2 = False
@@ -297,23 +295,34 @@ is_good2 = False
 
 
 
-## 17: (Problem 17) Solving 2x2 linear systems and finding matrix inverse
-solving_systems_x1 = ...
-solving_systems_x2 = ...
-solving_systems_y1 = ...
-solving_systems_y2 = ...
-solving_systems_m = Mat(({0, 1}, {0, 1}), {...})
-solving_systems_a = Mat(({0, 1}, {0, 1}), {...})
-solving_systems_a_times_m = Mat(({0, 1}, {0, 1}), {...})
-solving_systems_m_times_a = Mat(({0, 1}, {0, 1}), {...})
+## 18: (Problem 17) Solving 2x2 linear systems and finding matrix inverse
+a=3
+b=2
+c=4
+d=1
+p1=1
+q1=0
+p2=0
+q2=1
+solving_systems_x1 = (d*p1-c*q1)/(a*d-b*c)
+solving_systems_x2 = (a*q1-b*p1)/(a*d-b*c)
+solving_systems_y1 = (d*p2-c*q2)/(a*d-b*c)
+solving_systems_y2 = (a*q2-c*p2)/(a*d-b*c)
+solving_systems_m = Mat(({0, 1}, {0, 1}), {(0,0):solving_systems_x1, (1,0):solving_systems_x2, (0,1):solving_systems_y1, (1,1):solving_systems_y2})
+solving_systems_a = Mat(({0, 1}, {0, 1}), {(0,0):a,(0,1):c,(1,0):b,(1,1):d})
+solving_systems_a_times_m = solving_systems_a*solving_systems_m #Mat(({0, 1}, {0, 1}), {...})
+solving_systems_m_times_a = solving_systems_m*solving_systems_a #Mat(({0, 1}, {0, 1}), {...})
+
+print(solving_systems_a_times_m)
+print(solving_systems_m_times_a)
 
 
 
-## 18: (Problem 18) Matrix inverse criterion
+## 19: (Problem 18) Matrix inverse criterion
 # Please write your solutions as booleans (True or False)
 
-are_inverses1 = ...
-are_inverses2 = ...
-are_inverses3 = ...
-are_inverses4 = ...
+are_inverses1 = True
+are_inverses2 = True
+are_inverses3 = False
+are_inverses4 = False
 
