@@ -4,6 +4,7 @@ coursera = 1
 
 from mat import Mat
 from vec import Vec
+import matutil
 
 
 
@@ -108,24 +109,24 @@ your_answer_c_BA = [[4,2,1,-1],[4,2,1,-1],[0,0,0,0],[0,0,0,0]]
 your_answer_d_AB = [[0,3,0,4],[0,4,0,1],[0,4,0,4],[0,-6,0,-1]]
 your_answer_d_BA = [[0,11,0,-2],[0,0,0,0],[0,0,0,0],[1,5,-2,3]]
 
-your_answer_e_AB = [[],[],[],[]]
-your_answer_e_BA = [[],[],[],[]]
+your_answer_e_AB = [[0,3,0,8],[0,-9,0,2],[0,0,0,8],[0,15,0,-2]]
+your_answer_e_BA = [[-2,12,4,-10],[0,0,0,0],[0,0,0,0],[-3,-15,6,-9]]
 
-your_answer_f_AB = [[],[],[],[]]
-your_answer_f_BA = [[],[],[],[]]
+your_answer_f_AB = [[-4,4,2,-3],[-1,10,-4,9],[-4,8,8,0],[1,12,4,-15]]
+your_answer_f_BA = [[-4,-2,-1,1],[2,10,-4,6],[8,8,8,0],[-3,18,6,-15]]
 
 
 
 ## 9: (Problem 9) Column-vector and row-vector matrix multiplication
-column_row_vector_multiplication1 = Vec({0, 1}, {...})
+column_row_vector_multiplication1 = Vec({0, 1}, {0:13, 1:20})
 
-column_row_vector_multiplication2 = Vec({0, 1, 2}, {...})
+column_row_vector_multiplication2 = Vec({0, 1, 2}, {0:24, 1:11, 2:4})
 
-column_row_vector_multiplication3 = Vec({0, 1, 2, 3}, {...})
+column_row_vector_multiplication3 = Vec({0, 1, 2, 3}, {0:4, 1:8, 2:11, 3:3})
 
-column_row_vector_multiplication4 = Vec({0,1}, {...})
+column_row_vector_multiplication4 = Vec({0,1}, {0:30, 1:16})
 
-column_row_vector_multiplication5 = Vec({0, 1, 2}, {...})
+column_row_vector_multiplication5 = Vec({0, 1, 2}, {0:-3, 1:1, 2:9})
 
 
 
@@ -151,8 +152,9 @@ def lin_comb_mat_vec_mult(M, v):
     True
     '''
     assert(M.D[1] == v.D)
-    pass
-
+    colDict = matutil.mat2coldict(M)
+    #return Vec(M.D[0], {r:sum([v[c]*M[r,c] for c in M.D[1]]) for r in M.D[0]})
+    return sum([v[k]*colDict[k] for k in v.D])
 
 
 ## 11: (Problem 11) Linear-combinations vector-matrix multiply
@@ -176,7 +178,9 @@ def lin_comb_vec_mat_mult(v, M):
       True
     '''
     assert(v.D == M.D[0])
-    pass
+    rowDict = matutil.mat2rowdict(M)
+    return sum([v[k]*rowDict[k] for k in v.D])
+    #return Vec(M.D[1], {c:sum([v[r]*M[r,c] for r in M.D[0]]) for c in M.D[1]})
 
 
 
@@ -199,7 +203,8 @@ def dot_product_mat_vec_mult(M, v):
     True
     '''
     assert(M.D[1] == v.D)
-    pass
+    rowDict = matutil.mat2rowdict(M)
+    return Vec(M.D[0], {k:v*rowDict[k] for k in M.D[0]})
 
 
 
@@ -221,7 +226,8 @@ def dot_product_vec_mat_mult(v, M):
       True
       '''
     assert(v.D == M.D[0])
-    pass
+    colDict = matutil.mat2coldict(M)
+    return Vec(M.D[1], {k:v*colDict[k] for k in M.D[1]})
 
 
 
@@ -229,14 +235,18 @@ def dot_product_vec_mat_mult(v, M):
 # You are also allowed to use the matutil module
 def Mv_mat_mat_mult(A, B):
     assert A.D[1] == B.D[0]
-    pass
+    B_cd = matutil.mat2coldict(B)
+    mul_colDict = {col_labels:A*B_cd[col_labels] for col_labels in B.D[1]}
+    return matutil.coldict2mat(mul_colDict)
 
 
 
 ## 15: (Problem 15) Vector-matrix matrix-matrix multiply
 def vM_mat_mat_mult(A, B):
     assert A.D[1] == B.D[0]
-    pass
+    A_rd = matutil.mat2rowdict(A)
+    mul_rowDict = {row_label:A_rd[row_label]*B for row_label in A.D[0]}
+    return matutil.rowdict2mat(mul_rowDict)
 
 
 
@@ -259,47 +269,60 @@ b1=Vec(D(9),{(7, 8):one,(7, 7):one,(6, 2):one,(3, 7):one,(2, 5):one,(8, 5):one,(
 
 
 #Solution given by solver.
-x1 = ...
+A1= matutil.coldict2mat(button_vectors(9))
+x1 = solve(A1, b1)
 
 #residual
-r1 = ...
+r1 = (b1-A1*x1)
 
 #Is x1 really a solution? Assign True if yes, False if no.
-is_good1 = ...
+is_good1 = True
 
 ## PART 2
 
 b2=Vec(D(9), {(3,4):one, (6,7):one})
 
 #Solution given by solver
-x2 = ...
+A2 = matutil.coldict2mat(button_vectors(9))
+x2 = solve(A2, b2)
 
 #residual
-r2 = ...
+r2 = (b2-A2*x2)
 
 #Is it really a solution? Assign True if yes, False if no.
-is_good2 = ...
+is_good2 = False
 
 
 
 
-## 17: (Problem 17) Solving 2x2 linear systems and finding matrix inverse
-solving_systems_x1 = ...
-solving_systems_x2 = ...
-solving_systems_y1 = ...
-solving_systems_y2 = ...
-solving_systems_m = Mat(({0, 1}, {0, 1}), {...})
-solving_systems_a = Mat(({0, 1}, {0, 1}), {...})
-solving_systems_a_times_m = Mat(({0, 1}, {0, 1}), {...})
-solving_systems_m_times_a = Mat(({0, 1}, {0, 1}), {...})
+## 18: (Problem 17) Solving 2x2 linear systems and finding matrix inverse
+a=3
+b=2
+c=4
+d=1
+p1=1
+q1=0
+p2=0
+q2=1
+solving_systems_x1 = (d*p1-c*q1)/(a*d-b*c)
+solving_systems_x2 = (a*q1-b*p1)/(a*d-b*c)
+solving_systems_y1 = (d*p2-c*q2)/(a*d-b*c)
+solving_systems_y2 = (a*q2-c*p2)/(a*d-b*c)
+solving_systems_m = Mat(({0, 1}, {0, 1}), {(0,0):solving_systems_x1, (1,0):solving_systems_x2, (0,1):solving_systems_y1, (1,1):solving_systems_y2})
+solving_systems_a = Mat(({0, 1}, {0, 1}), {(0,0):a,(0,1):c,(1,0):b,(1,1):d})
+solving_systems_a_times_m = solving_systems_a*solving_systems_m #Mat(({0, 1}, {0, 1}), {...})
+solving_systems_m_times_a = solving_systems_m*solving_systems_a #Mat(({0, 1}, {0, 1}), {...})
+
+print(solving_systems_a_times_m)
+print(solving_systems_m_times_a)
 
 
 
-## 18: (Problem 18) Matrix inverse criterion
+## 19: (Problem 18) Matrix inverse criterion
 # Please write your solutions as booleans (True or False)
 
-are_inverses1 = ...
-are_inverses2 = ...
-are_inverses3 = ...
-are_inverses4 = ...
+are_inverses1 = True
+are_inverses2 = True
+are_inverses3 = False
+are_inverses4 = False
 
