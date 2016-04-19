@@ -7,7 +7,12 @@ coursera = 1
 
 from mat import Mat
 from vec import Vec
+from image_mat_util import file2mat
+from image_mat_util import mat2display
 import math
+
+#(loc_mat, color_mat) = file2mat('pic.png')
+#mat2display(loc_mat, color_mat)
 
 ## Task 1
 def identity(labels = {'x','y','u'}):
@@ -25,7 +30,7 @@ def identity(labels = {'x','y','u'}):
     >>> identity({'r','g','b'})==Mat(({'r','g','b'},{'r','g','b'}), {('r','r'):1, ('g','g'):1, ('b','b'):1})
     True
     '''
-    pass
+    return Mat((labels, labels), {(a,b):1 for a in labels for b in labels if a==b})
 
 ## Task 2
 def translation(x,y):
@@ -36,7 +41,13 @@ def translation(x,y):
     >>> translation(9,10)==Mat(({'x','y','u'},{'x','y','u'}), {('x','x'):1, ('y','y'):1, ('u','u'):1, ('y','u'):10, ('x','u'):9})
     True
     '''
-    pass
+    ret = identity()
+    ret['x', 'u'] = x
+    ret['y', 'u'] = y
+    return ret
+
+
+translation(9,10)==Mat(({'x','y','u'},{'x','y','u'}), {('x','x'):1, ('y','y'):1, ('u','u'):1, ('y','u'):10, ('x','u'):9})
 
 ## Task 3
 def scale(a, b):
@@ -49,7 +60,10 @@ def scale(a, b):
     >>> scale(0,0)*Vec({'x','y','u'}, {'x':1,'y':1,'u':1}) == Vec({'x','y','u'}, {'u':1})
     True
     '''
-    pass
+    ret = identity()
+    ret['x', 'x'] = a
+    ret['y', 'y'] = b
+    return ret
 
 ## Task 4
 def rotation(angle):
