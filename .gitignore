@@ -87,3 +87,7 @@ ENV/
 #Pycharms project
 .idea/workspace.xml
 
+.idea/encodings.xml
+.idea/matrix.iml
+.idea/misc.xml
+.idea/modules.xml
