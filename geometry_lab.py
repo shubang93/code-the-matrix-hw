@@ -7,6 +7,7 @@ coursera = 1
 
 from mat import Mat
 from vec import Vec
+import math
 from image_mat_util import file2mat
 from image_mat_util import mat2display
 import math
@@ -78,7 +79,14 @@ def rotation(angle):
     >>> normsq(rotation(math.pi/2) * Vec({'u', 'x', 'y'},{'x':3,'y':1,'u':1}) - Vec({'u', 'x', 'y'},{'u': 1, 'x': -1, 'y': 3.0})) < 1e-15
     True
     '''
-    pass
+    ret = identity()
+    ret['x','x'] = math.cos(angle)
+    ret['x','y'] = -1*math.sin(angle)
+    ret['y','x'] = math.sin(angle)
+    ret['y','y'] = math.cos(angle)
+    return ret
+
+print(rotation(math.pi/2) * Vec({'u', 'x', 'y'},{'x':3,'y':1,'u':1}))
 
 ## Task 5
 def rotate_about(x,y,angle):
@@ -88,7 +96,11 @@ def rotate_about(x,y,angle):
     Output:  Corresponding 3x3 rotation matrix.
     It might be helpful to use procedures you already wrote.
     '''
-    pass
+    t1 = translation(x, y)
+    t2 = translation(-x,-y);
+    r = rotation(angle)
+    return t1*r*t2
+
 
 ## Task 6
 def reflect_y():
