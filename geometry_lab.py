@@ -145,7 +145,7 @@ def scale_color(scale_r,scale_g,scale_b):
     >>> scale_color(1,2,3)*Vec({'r','g','b'},{'r':1,'g':2,'b':3}) == Vec({'r','g','b'},{'r':1,'g':4,'b':9})
     True
     '''
-    pass
+    return Mat(({'r','g','b'}, {'r', 'g', 'b'}), {('r','r'):scale_r, ('g','g'):scale_g, ('b','b'):scale_b})
 
 ## Task 9
 def grayscale():
@@ -153,7 +153,9 @@ def grayscale():
     Input: None
     Output: 3x3 greyscale matrix.
     '''
-    pass
+    return Mat(({'r','g','b'}, {'r', 'g', 'b'}), {('r','r'):77/256, ('r','g'): 151/256, ('r','b'):28/256,
+                                                  ('g','r'):77/256, ('g','g'): 151/256, ('g','b'):28/256,
+                                                  ('b','r'):77/256, ('b','g'): 151/256, ('b','b'):28/256})
 
 ## Task 10
 def reflect_about(x1, y1, x2, y2):
