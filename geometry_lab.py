@@ -115,7 +115,9 @@ def reflect_y():
     >>> reflect_y()*w == Vec({'x','y','u'},{'u':1})
     True
     '''
-    pass
+    ret = identity()
+    ret['x','x'] = -1
+    return ret
 
 ## Task 7
 def reflect_x():
@@ -130,7 +132,9 @@ def reflect_x():
     >>> reflect_x()*w == Vec({'x','y','u'},{'u':1})
     True
     '''
-    pass
+    ret = identity()
+    ret['y','y'] = -1
+    return ret
 
 ## Task 8    
 def scale_color(scale_r,scale_g,scale_b):
