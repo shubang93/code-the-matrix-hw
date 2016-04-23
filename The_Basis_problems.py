@@ -61,18 +61,18 @@ gf2_lc_rep_4 = [0,0,0,one,0,one,0,0]
 # For each part, please provide your solution as a list of the coefficients for
 # the generators of V.
 
-lin_dep_R_1 = [...]
-lin_dep_R_2 = [...]
-lin_dep_R_3 = [...]
+lin_dep_R_1 = [-2,1,1]
+lin_dep_R_2 = [-4,1,-4/7]
+lin_dep_R_3 = [0,0,0,0,0]
 
 
 
 ## 6: (Problem 5.14.6) Linear Dependence over R B
 # Please record your solution as a list of coefficients
 
-linear_dep_R_1 = [...]
-linear_dep_R_2 = [...]
-linear_dep_R_3 = [...]
+linear_dep_R_1 = [-1,1,-3]
+linear_dep_R_2 = [2*sqrt(2),sqrt(2)/pi,1]
+linear_dep_R_3 = [1,1,1,1,1]
 
 
 
@@ -83,30 +83,30 @@ linear_dep_R_3 = [...]
 # For example, if you want to say that w equals 2*u+3*v, you would
 # assign 'w' to sum_to, assign 2 to u_coeff, and assign 3 to v_coeff.
 # (In this case, it would not matter what was assigned to w_coeff.)
-sum_to = ...
-u_coeff = ...
-v_coeff = ...
-w_coeff = ...
+sum_to = 'v'
+u_coeff = 1
+v_coeff = sum_to
+w_coeff = 1
 
 
 
 ## 8: (Problem 5.14.8) 4 linearly dependent vectors, every 3 are independent
 # Please use the Vec class to represent your vectors
 
-indep_vec_1 = Vec({...}, {...})
-indep_vec_2 = Vec({...}, {...})
-indep_vec_3 = Vec({...}, {...})
-indep_vec_4 = Vec({...}, {...})
+indep_vec_1 = Vec({'x','y','z','w'}, {'x':1})
+indep_vec_2 = Vec({'x','y','z','w'}, {'y':1})
+indep_vec_3 = Vec({'x','y','z','w'}, {'z':1})
+indep_vec_4 = Vec({'x','y','z','w'}, {'x':1,'y':1,'z':1})
 
-
+print(indep_vec_1)
 
 ## 9: (Problem 5.14.9) Linear Dependence over GF(2) A
 # For each subproblem, assign to the corresponding variable the list of
 # coefficients (0 or one) for which the linear combination is zero.
 
-zero_comb_1 = [...]
-zero_comb_2 = [...]
-zero_comb_3 = [...]
+zero_comb_1 = [one,one,0,one]
+zero_comb_2 = [0,one,one,one]
+zero_comb_3 = [one,one,0,0,one]
 
 
 
@@ -114,16 +114,16 @@ zero_comb_3 = [...]
 # In each subproblem, give your solution as a list of coefficients selected from {0, one}
 
 # [coeff of v1, coeff of v2, coeff of v3, coeff of v4, coeff of v5]
-sum_to_zero_1 = [...]
+sum_to_zero_1 = [0,one,0,one,one]
 
 # [coeff of v1, coeff of v2, coeff of v3, coeff of v4, coeff of v5, coeff of v7, coeff of v8]
-sum_to_zero_2 = [...]
+sum_to_zero_2 = [0,one,0,one,one,0,0]
 
 # [coeff of v1, coeff of v2, coeff of v3, coeff of v4, coeff of v6]
-sum_to_zero_3 = [...]
+sum_to_zero_3 = [one,0,one,one,one]
 
 # [coeff of v1, coeff of v2, coeff of v3, coeff of v5, coeff of v6, coeff of v7, coeff of v8]
-sum_to_zero_4 = [...]
+sum_to_zero_4 = [one,one,one,one,one,0,0]
 
 
 
