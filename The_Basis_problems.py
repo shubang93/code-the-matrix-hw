@@ -98,7 +98,6 @@ indep_vec_2 = Vec({'x','y','z','w'}, {'y':1})
 indep_vec_3 = Vec({'x','y','z','w'}, {'z':1})
 indep_vec_4 = Vec({'x','y','z','w'}, {'x':1,'y':1,'z':1})
 
-print(indep_vec_1)
 
 ## 9: (Problem 5.14.9) Linear Dependence over GF(2) A
 # For each subproblem, assign to the corresponding variable the list of
@@ -130,18 +129,18 @@ sum_to_zero_4 = [one,one,one,one,one,0,0]
 ## 11: (Problem 5.14.11) Exchange Lemma for Vectors over $\R$
 ## Please express your answer as a list of ints, such as [1,0,0,0,0]
 
-exchange_1 = [...]
-exchange_2 = [...]
-exchange_3 = [...]
+exchange_1 = [0,0,0,0,1]
+exchange_2 = [0,0,0,1,0]
+exchange_3 = [0,0,1,0,0]
 
 
 
 ## 12: (Problem 5.14.12) Exchange Lemma for Vectors over GF(2)
 # Please give the name of the vector you want to replace as a string (e.g. 'v1')
 
-replace_1 = ...
-replace_2 = ...
-replace_3 = ...
+replace_1 = 'v3'
+replace_2 = 'v1'
+replace_3 = 'v1'
 
 
 
@@ -163,7 +162,8 @@ def rep2vec(u, veclist):
         >>> rep2vec(Vec({0,1,2}, {0:2, 1:4}), [v0, v1, v2]) == Vec({'d', 'a', 'c', 'b'},{'a': 6, 'c': 0, 'b': 8, 'd': 0})
         True
     '''
-    pass
+    A = coldict2mat(veclist)
+    return A*u
 
 
 
@@ -183,7 +183,16 @@ def vec2rep(veclist, v):
         >>> vec2rep([v0,v1,v2], v)  == Vec({0, 1, 2},{0: 1.5, 1: -0.25, 2: 1.25})
         True
     '''
-    pass
+    A = coldict2mat(veclist)
+    u = solve(A, v)
+    print(u)
+    return u
+
+v0 = Vec({'a','b','c','d'}, {'a':2})
+v1 = Vec({'a','b','c','d'}, {'a': 16, 'b':4})
+v2 = Vec({'a','b','c','d'}, {'c':8})
+v = Vec({'d', 'a', 'c', 'b'},{'a': -1, 'c': 10, 'b': -1})
+print(vec2rep([v0,v1,v2], v)  == Vec({0, 1, 2},{0: 1.5, 1: -0.25, 2: 1.25}))
 
 
 

@@ -285,7 +285,7 @@ b2=Vec(D(9), {(3,4):one, (6,7):one})
 #Solution given by solver
 A2 = matutil.coldict2mat(button_vectors(9))
 x2 = solve(A2, b2)
-
+print(x2)
 #residual
 r2 = (b2-A2*x2)
 
