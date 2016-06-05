@@ -25,7 +25,7 @@ def _get_module():
 
     pycData = base64.decodebytes(pycData)
 
-    assert pycData[:4] == magic, "Bad magic number"
+    assert pycData[:4] == magic, "Bad magic number Independnce"
 
     try:
         return marshal.loads(pycData[offset:])

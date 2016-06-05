@@ -185,14 +185,7 @@ def vec2rep(veclist, v):
     '''
     A = coldict2mat(veclist)
     u = solve(A, v)
-    print(u)
     return u
-
-v0 = Vec({'a','b','c','d'}, {'a':2})
-v1 = Vec({'a','b','c','d'}, {'a': 16, 'b':4})
-v2 = Vec({'a','b','c','d'}, {'c':8})
-v = Vec({'d', 'a', 'c', 'b'},{'a': -1, 'c': 10, 'b': -1})
-print(vec2rep([v0,v1,v2], v)  == Vec({0, 1, 2},{0: 1.5, 1: -0.25, 2: 1.25}))
 
 
 
@@ -233,13 +226,28 @@ def is_superfluous(S, v):
     >>> is_superfluous(S, list2vec([0,0,0,one]))
     False
     >>> S = {list2vec(v) for v in [[one,one,one,0,one],[0,0,one,0,one],[0,one,one,0,0],[0,one,one,one,one]]}
-    >>>> is_superfluous(S, list2vec([0,one,one,one,one]))
+    >>> is_superfluous(S, list2vec([0,one,one,one,one]))
     False
     '''
     assert v in S
-    pass
+    if len(S)==1:
+        if v==Vec(v.D, {}):
+            return True
+        else:
+            return False
+    S_v  = list(S)
+    S_v.remove(v)
+    A = coldict2mat(S_v)
+    u = solve(A, v)
+    return ((v-A*u).is_almost_zero())
 
-
+D = {'a','b','c','d'}
+d0=Vec(D, {'a':1,'b':-1})
+d1=Vec(D, {'c':-1,'b':1})
+d2=Vec(D, {'c':1,'d':-1})
+d3=Vec(D, {'a':-1,'d':1})
+d4=Vec(D, {'b':1, 'c':1, 'd':-1})
+print(((is_superfluous([d0,d1,d2,d3],d3)), 2))
 
 ## 16: () is_independent in Python
 def is_independent(S):
@@ -268,7 +276,11 @@ def is_independent(S):
     >>> is_independent({list2vec(v) for v in [[one,one,0,0,0],[0,one,one,0,0],[0,0,one,one,0],[0,0,0,one,one]]})
     True
     '''
-    pass
+    listS = list(S)
+    for l in listS:
+        if(is_superfluous(S, l)):
+            return False
+    return True
 
 
 
