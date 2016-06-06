@@ -322,14 +322,28 @@ def exchange(S, A, z):
         >>> z = list2vec([0, one, 0, one])
         >>> exchange(S, A, z) in [list2vec([0, 0, one, one]), list2vec([0, one, one, 0])]
         True
+        >>> from The_Basis_problems import exchange
+        >>> from vec import Vec
+        >>> from GF2 import one
+        >>> D = {0,1,2,3}
+        >>> S = {Vec(D,{0:one, 2:one}), Vec(D,{0:one, 1:one, 2:one, 3:one}), Vec(D,{0:one, 1:one}), Vec(D,{0:one, 1:one, 2:one})}
+        >>> A = {Vec(D,{0:one, 1:one, 2:one})}
+        >>> z = Vec(D,{1:one})
+        >>> exchange(S, A, z) == Vec(D,{0:one, 2:one})
+        True
+        >>> D = {0,1,2,3,4}
+        >>> S = {Vec(D,{0: one, 1: one, 2: one, 4: one}), Vec(D,{1: one, 2: one, 3: one}), Vec(D,{0: one, 1: one, 4: one}), Vec(D,{4: one}), Vec(D,{1: one})}
+        >>> A = {Vec(D,{1: one, 2: one, 3: one}), Vec(D,{4: one}), Vec(D,{1: one})}
+        >>> z = Vec(D,{0: one, 3: one, 4: one})
+        >>> exchange(S, A, z)== Vec(D,{0: one, 1: one, 2: one, 4: one})
+        True
     '''
-    vecToRemove = set(S)
-    for a in A:
-        vecToRemove.remove(a)
-    S_z = set(S)
-    S_z.add(z)
-    for v in vecToRemove:
-        if is_superfluous(S_z, v):
-            return v
+    S_list = list(S)
+    A_list = list(A)
+    z_coordinates = vec2rep(S_list, z)
+    for s in S_list:
+        if s not in A:
+            if z_coordinates[S_list.index(s)] != 0:
+                return s
     return Vec(z.D, {})
 
