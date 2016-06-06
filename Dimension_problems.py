@@ -8,6 +8,8 @@ from solver import solve
 from matutil import listlist2mat, coldict2mat
 from mat import Mat
 from vec import Vec
+from The_Basis_problems import vec2rep
+from The_Basis_problems import exchange
 
 
 
@@ -80,7 +82,16 @@ def morph(S, B):
         >>> sol == [(B[0],S[0]), (B[1],S[2]), (B[2],S[3])] or sol == [(B[0],S[1]), (B[1],S[2]), (B[2],S[3])]
         True
     '''
-
+    morphed_S = list(S)
+    A = list(())
+    ret = list()
+    for b in B:
+        w = exchange(morphed_S, A, b)
+        morphed_S.remove(w)
+        morphed_S.append(b)
+        A.append(b)
+        ret.append((b, w))
+    return ret
 
 
 
