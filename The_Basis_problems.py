@@ -284,7 +284,7 @@ def is_independent(S):
 
 
 
-## 17: () Exchange Lemma in Python
+## 19: () Exchange Lemma in Python
 def exchange(S, A, z):
     '''
     Input:
@@ -323,5 +323,13 @@ def exchange(S, A, z):
         >>> exchange(S, A, z) in [list2vec([0, 0, one, one]), list2vec([0, one, one, 0])]
         True
     '''
-    pass
+    vecToRemove = set(S)
+    for a in A:
+        vecToRemove.remove(a)
+    S_z = set(S)
+    S_z.add(z)
+    for v in vecToRemove:
+        if is_superfluous(S_z, v):
+            return v
+    return Vec(z.D, {})
 
