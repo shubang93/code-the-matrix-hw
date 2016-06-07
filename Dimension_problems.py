@@ -98,17 +98,17 @@ def morph(S, B):
 ## 4: (Problem 4) Row and Column Rank Practice
 # Please express each solution as a list of Vecs
 
-row_space_1 = [...]
-col_space_1 = [...]
+row_space_1 = [list2vec([1,2,0]), list2vec([0,2,1])]
+col_space_1 = [list2vec([1,0]), list2vec([0,1])]
 
-row_space_2 = [...]
-col_space_2 = [...]
+row_space_2 = [list2vec([1,4,0,0]), list2vec([0,2,2,0]), list2vec([0,0,1,1])]
+col_space_2 = [list2vec([1,0,0]), list2vec([0,2,1]), list2vec([0,0,1])]
 
-row_space_3 = [...]
-col_space_3 = [...]
+row_space_3 = [list2vec([1])]
+col_space_3 = [list2vec([1,2,3])]
 
-row_space_4 = [...]
-col_space_4 = [...]
+row_space_4 = [list2vec([1,0]), list2vec([2,1])]
+col_space_4 = [list2vec([1,2,3]), list2vec([0,1,4])]
 
 
 
