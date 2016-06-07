@@ -228,7 +228,7 @@ def my_is_independent(L):
 
 
 
-## 8: (Problem 8) My Rank
+## 6: (Problem 8) My Rank
 def my_rank(L):
     '''
     Input: 
@@ -244,11 +244,11 @@ def my_rank(L):
         >>> my_rank([list2vec(v) for v in [[1,1,1],[2,2,2],[3,3,3],[4,4,4],[123,432,123]]])
         2
     '''
-    pass
+    return len(subset_basis(L))
 
 
 
-## 9: (Problem 9) Direct Sum Unique Representation
+## 7: (Problem 9) Direct Sum Unique Representation
 def direct_sum_decompose(U_basis, V_basis, w):
     '''
     Input:
@@ -291,7 +291,7 @@ def direct_sum_decompose(U_basis, V_basis, w):
 
 
 
-## 10: (Problem 10) Is Invertible Function
+## 8: (Problem 10) Is Invertible Function
 def is_invertible(M):
     '''
     input: A matrix, M
@@ -309,7 +309,7 @@ def is_invertible(M):
 
 
 
-## 11: (Problem 11) Inverse of a Matrix over GF(2)
+## 9: (Problem 11) Inverse of a Matrix over GF(2)
 def find_matrix_inverse(A):
     '''
     Input:
@@ -328,7 +328,7 @@ def find_matrix_inverse(A):
 
 
 
-## 12: (Problem 12) Inverse of a Triangular Matrix
+## 10: (Problem 12) Inverse of a Triangular Matrix
 def find_triangular_matrix_inverse(A):
     '''
     Supporting GF2 is not required.
