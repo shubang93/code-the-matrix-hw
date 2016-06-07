@@ -10,7 +10,9 @@ from mat import Mat
 from vec import Vec
 from The_Basis_problems import vec2rep
 from The_Basis_problems import exchange
-
+from The_Basis_problems import is_superfluous
+from The_Basis_problems import is_independent
+from independence import rank
 
 
 ## 1: (Problem 1) Iterative Exchange Lemma
@@ -112,7 +114,7 @@ col_space_4 = [list2vec([1,2,3]), list2vec([0,1,4])]
 
 
 
-## 5: (Problem 5) Subset Basis
+##: (Problem 5) Subset Basis
 def subset_basis(T):
     '''
     Input:
@@ -153,11 +155,15 @@ def subset_basis(T):
         >>> subset_basis({c0,c1,c2,c3,c4}) == {c0,c1,c2,c4}
         True
     '''
-    pass
+    S = set(T)
+    for s in S.copy():
+        if is_superfluous(S, s):
+            S.remove(s)
+    return S
 
 
 
-## 6: (Problem 6) Superset Basis Lemma in Python
+##: (Problem 6) Superset Basis Lemma in Python
 def superset_basis(C, T):
     '''
     Input:
@@ -182,11 +188,16 @@ def superset_basis(C, T):
         >>> all(x in [a0,a1,a2,a3] for x in sb)
         True
     '''
-    pass
+    S = set(C)
+    S.union(set(T))
+    for v in S:
+        if is_superfluous(S, v):
+            S.remove(v)
+    return S
 
 
 
-## 7: (Problem 7) My Is Independent Procedure
+## 5: (Problem 7) My Is Independent Procedure
 def my_is_independent(L):
     '''
     Input:
@@ -213,7 +224,7 @@ def my_is_independent(L):
         >>> L == [Vec(D,{0: 1}), Vec(D,{1: 1}), Vec(D,{2: 1}), Vec(D,{0: 1, 1: 1, 2: 1}), Vec(D,{0: 1, 1: 1}), Vec(D,{1: 1, 2: 1})]
         True
     '''
-    pass
+    return rank(L)==len(L)
 
 
 
