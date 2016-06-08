@@ -16,6 +16,8 @@ from independence import rank
 from The_Basis_problems import rep2vec
 from matutil import mat2coldict
 from matutil import mat2rowdict
+from vecutil import zero_vec
+from matutil import identity
 
 
 ## 1: (Problem 1) Iterative Exchange Lemma
@@ -341,7 +343,13 @@ def find_matrix_inverse(A):
         >>> find_matrix_inverse(M2) == Mat(M2.D, {(0, 1): one, (1, 0): one, (2, 2): one})
         True
     '''
-    pass
+    cols = range(len(mat2coldict(A)))
+    iden = mat2coldict(identity(A.D[0], one))
+    B = list()
+    for n in cols:
+        ones = iden[n]
+        B.append(solve(A, ones))
+    return coldict2mat(B)
 
 
 
