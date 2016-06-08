@@ -351,6 +351,7 @@ def find_matrix_inverse(A):
         B.append(solve(A, ones))
     return coldict2mat(B)
 
+from triangular import triangular_solve
 
 
 ## 11: (Problem 12) Inverse of a Triangular Matrix
@@ -368,5 +369,12 @@ def find_triangular_matrix_inverse(A):
         >>> find_triangular_matrix_inverse(A) == Mat(({0, 1, 2, 3}, {0, 1, 2, 3}), {(0, 1): -0.5, (1, 2): -0.3, (3, 2): 0.0, (0, 0): 1.0, (3, 3): 1.0, (3, 0): 0.0, (3, 1): 0.0, (2, 1): 0.0, (0, 2): -0.05000000000000002, (2, 0): 0.0, (1, 3): -0.87, (2, 3): -0.1, (2, 2): 1.0, (1, 0): 0.0, (0, 3): -3.545, (1, 1): 1.0})
         True
     '''
-    pass
+    rows = range(len(mat2rowdict(A)))
+    b = mat2coldict(identity(A.D[0], 1))
+    rowlist = mat2rowdict(A)
+    ret = list()
+    for n in rows:
+        ones = b[n]
+        ret.append(triangular_solve(list(rowlist.values()), list(A.D[1]), ones))
+    return coldict2mat(ret)
 
