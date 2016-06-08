@@ -14,6 +14,8 @@ from The_Basis_problems import is_superfluous
 from The_Basis_problems import is_independent
 from independence import rank
 from The_Basis_problems import rep2vec
+from matutil import mat2coldict
+from matutil import mat2rowdict
 
 
 ## 1: (Problem 1) Iterative Exchange Lemma
@@ -319,7 +321,8 @@ def is_invertible(M):
     >>> is_invertible(M1)
     False
     '''
-    pass
+    coldict = mat2coldict(M)
+    return (my_rank(coldict.values())==len(coldict.values()) and len(coldict.values())==len(mat2rowdict(M).values()))
 
 
 
