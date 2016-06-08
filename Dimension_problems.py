@@ -13,6 +13,7 @@ from The_Basis_problems import exchange
 from The_Basis_problems import is_superfluous
 from The_Basis_problems import is_independent
 from independence import rank
+from The_Basis_problems import rep2vec
 
 
 ## 1: (Problem 1) Iterative Exchange Lemma
@@ -248,7 +249,7 @@ def my_rank(L):
 
 
 
-## 7: (Problem 9) Direct Sum Unique Representation
+## 8: (Problem 9) Direct Sum Unique Representation
 def direct_sum_decompose(U_basis, V_basis, w):
     '''
     Input:
@@ -287,11 +288,24 @@ def direct_sum_decompose(U_basis, V_basis, w):
         >>> w == Vec(D,{0: 2, 1: 5, 2: 0, 3: 0, 4: 1, 5: 0})
         True
     '''
-    pass
+    U_V_basis = list(U_basis)
+    U_V_basis.extend(V_basis)
+    w_coordinates = vec2rep(U_V_basis, w)
+    w_u_coord = list()
+    w_v_coord = list()
+    for n in range(len(U_V_basis)):
+        if n < len(U_basis):
+            w_u_coord.append(w_coordinates[n])
+        else:
+            w_v_coord.append(w_coordinates[n])
+
+    u = rep2vec(list2vec(w_u_coord), U_basis)
+    v = rep2vec(list2vec(w_v_coord), V_basis)
+    return (u, v)
 
 
 
-## 8: (Problem 10) Is Invertible Function
+## 9: (Problem 10) Is Invertible Function
 def is_invertible(M):
     '''
     input: A matrix, M
@@ -309,7 +323,7 @@ def is_invertible(M):
 
 
 
-## 9: (Problem 11) Inverse of a Matrix over GF(2)
+## 10: (Problem 11) Inverse of a Matrix over GF(2)
 def find_matrix_inverse(A):
     '''
     Input:
@@ -328,7 +342,7 @@ def find_matrix_inverse(A):
 
 
 
-## 10: (Problem 12) Inverse of a Triangular Matrix
+## 11: (Problem 12) Inverse of a Triangular Matrix
 def find_triangular_matrix_inverse(A):
     '''
     Supporting GF2 is not required.
