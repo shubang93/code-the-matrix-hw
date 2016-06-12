@@ -90,7 +90,27 @@ def is_echelon(A):
         >>> is_echelon([[7,1,0],[0,5,0],[0,0,0],[0,0,0]])
         True
     '''
-    pass
+    row_range = list(reversed(range(len(A))))
+    row_range.remove(0)
+    col_range = range(len(A[0]))
+    for r in row_range:
+        k = len(col_range)
+        k_1 = len(col_range)-1
+        row = A[r]
+        row_1 = A[r-1]
+        for c in col_range:
+            if row[c] !=0:
+                k = c
+                break
+        for c in col_range:
+            if row_1[c] !=0:
+                k_1 = c
+                break
+        if k_1 >= k:
+            return False
+    return True
+
+
 
 
 
