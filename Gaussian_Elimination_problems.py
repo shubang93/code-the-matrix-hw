@@ -6,29 +6,59 @@ from matutil import *
 from GF2 import one
 
 
+def convert_to_echelon(M):
+    '''
+    Input:
+        - M: a Matrix
+    Output:
+        - A: a Matrix converted to echelon form
+    Examples:
+        >>> convert_to_echelon(identity(range(4), 1)) == identity(range(4), 1)
+        True
+    '''
+    row_list = list(mat2rowdict(M).values())
+    col_label_list = sorted(row_list[0].D, key=hash)
+    rows_left = set(range(len(row_list)))
+    new_row_list = list()
+    for c in col_label_list:
+        rows_non_zero = [r for r in rows_left if row_list[r][c] !=0 ]
+        if rows_non_zero != []:
+            pivot_row = rows_non_zero[0]
+            new_row_list.append(row_list[pivot_row])
+            rows_left.remove(pivot_row)
+            for r in rows_non_zero[1:]:
+                multiplier = row_list[r][c]/row_list[pivot_row][c]
+                row_list[r] -= multiplier*row_list[pivot_row]
+    return rowdict2mat(new_row_list)
+
+
+
+
+
+
 
 ## 1: (Problem 1) Recognizing Echelon Form
 # Write each matrix as a list of row lists
 
-echelon_form_1 = [[   ...   ],
-                  [   ...   ],
-                  [   ...   ],
-                  [   ...   ],
-                  [   ...   ]]
+echelon_form_1 = [[   1, 2, 0, 2, 0   ],
+                  [   0, 1, 0, 3, 4   ],
+                  [   0, 0, 2, 3, 4   ],
+                  [   0, 0, 0, 2, 0   ],
+                  [   0, 0, 0, 0, 4   ]]
 
-echelon_form_2 = [[   ...   ],
-                  [   ...   ],
-                  [   ...   ],
-                  [   ...   ]]
+echelon_form_2 = [[   0, 4, 3, 4, 4   ],
+                  [   0, 0, 4, 2, 0   ],
+                  [   0, 0, 0, 0, 1   ],
+                  [   0, 0, 0, 0, 0   ]]
 
-echelon_form_3 = [[   ...   ],
-                  [   ...   ],
-                  [   ...   ]]
+echelon_form_3 = [[   1, 0, 0, 1   ],
+                  [   0, 0, 0, 1   ],
+                  [   0, 0, 0, 0   ]]
 
-echelon_form_4 = [[   ...   ],
-                  [   ...   ],
-                  [   ...   ],
-                  [   ...   ]]
+echelon_form_4 = [[   1, 0, 0, 0   ],
+                  [   0, 1, 0, 0   ],
+                  [   0, 0, 0, 0   ],
+                  [   0, 0, 0, 0   ]]
 
 
 
