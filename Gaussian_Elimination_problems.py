@@ -117,9 +117,9 @@ def is_echelon(A):
 ## 3: (Problem 3) Solving with Echelon Form: No Zero Rows
 # Give each answer as a list
 
-echelon_form_vec_a = ...
-echelon_form_vec_b = ...
-echelon_form_vec_c = ...
+echelon_form_vec_a = [1,0,3,0]
+echelon_form_vec_b = [-3,0,-2,3]
+echelon_form_vec_c = [-5,0,2,0,2]
 
 
 
@@ -127,8 +127,8 @@ echelon_form_vec_c = ...
 # If a solution exists, give it as a list vector.
 # If no solution exists, provide "None" (without the quotes).
 
-solving_with_echelon_form_a = ...
-solving_with_echelon_form_b = ...
+solving_with_echelon_form_a = None
+solving_with_echelon_form_b = [21, 0, 2, 0, 0]
 
 
 
