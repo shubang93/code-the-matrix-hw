@@ -166,9 +166,12 @@ def echelon_solve(row_list, label_list, b):
 
 
 ## 6: (Problem 6) Solving General Matrices via Echelon
-row_list = [ ... ]    # Provide as a list of Vec instances
-label_list = [ ... ] # Provide as a list
-b = [ ... ]          # Provide as a list of GF(2) values
+rowlist = [ Vec({'A', 'B', 'C', 'D'}, {'A': one, 'B': one, 'D': one}),
+             Vec({'A', 'B', 'C', 'D'}, {'B': one}),
+             Vec({'A', 'B', 'C', 'D'}, {'C': one}),
+             Vec({'A', 'B', 'C', 'D'}, {'D': one})]    # Provide as a list of Vec instances
+label_list = ['A', 'B', 'C', 'D'] # Provide as a list
+b = [one, one, 0, 0]          # Provide as a list of GF(2) values
 
 
 
