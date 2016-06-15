@@ -176,10 +176,10 @@ b = [one, one, 0, 0]          # Provide as a list of GF(2) values
 
 
 ## 7: (Problem 7) Nullspace A
-null_space_rows_a = {...} # Put the row numbers of M from the PDF
+null_space_rows_a = {3,4} # Put the row numbers of M from the PDF
 
 
 
 ## 8: (Problem 8) Nullspace B
-null_space_rows_b = {...} # Put the row numbers of M from the PDF
+null_space_rows_b = {4} # Put the row numbers of M from the PDF
 
