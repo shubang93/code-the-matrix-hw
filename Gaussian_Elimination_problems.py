@@ -4,7 +4,7 @@ coursera = 1
 
 from matutil import *
 from GF2 import one
-
+from vecutil import zero_vec
 
 def convert_to_echelon(M):
     '''
@@ -146,14 +146,22 @@ def echelon_solve(row_list, label_list, b):
     >>> U_rows = [Vec(D, {'A':one, 'E':one}), Vec(D, {'B':one, 'E':one}), Vec(D,{'C':one})]
     >>> b_list = [one,0,one]
     >>> cols = ['A', 'B', 'C', 'D', 'E']
-    >>> echelon_solve(U_rows, cols, b_list) == Vec({'B', 'C', 'A', 'D', 'E'},{'B': 0, 'C': one, 'A': one})
+    >>> echelon_solve(U_rows, cols, b_list) == Vec({'B', 'C', 'A', 'D', 'E'},{'C': one, 'A': one})
     True
     >>> U_rows == [Vec(D, {'A':one, 'E':one}), Vec(D, {'B':one, 'E':one}), Vec(D,{'C':one})]
     True
     >>> b_list == [one,0,one]
     True
     '''
-    pass
+    D = row_list[0].D
+    x = zero_vec(D)
+    for j in reversed(range(len(row_list))):
+        non_zero_col = [col for col in sorted(D) if row_list[j][col] !=0]
+        if non_zero_col != []:
+            c = non_zero_col[0]
+            row = row_list[j]
+            x[c] = (b[j] - x*row)/row[c]
+    return x
 
 
 

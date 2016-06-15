@@ -125,18 +125,17 @@ def equal(u,v):
     True
     >>> print(test_format((Vec(set(),{}) == Vec(set(),{})), 2))
     True
+    >>> from GF2 import one
+    >>> Vec({'B', 'C', 'A', 'D', 'E'},{'C': one, 'A': one}) == Vec({'B', 'C', 'A', 'D', 'E'},{'B': 0, 'C': one, 'A': one, 'D': 0, 'E': 0})
+    True
     """
     assert u.D == v.D
-    equal = True
 
     for k in u.D:
-        value_u = u[k]
-        value_v = v[k]
-        if value_u!=value_v:
-            equal = False
-            break
+        if u[k] != v[k]:
+            return False
 
-    return equal
+    return True
 
 def add(u,v):
     """
