@@ -13,6 +13,45 @@ from factoring_support import prod
 
 import echelon
 
+def root_method(N):
+    '''
+
+    Args:
+        N:
+
+    Returns:
+    >>> root_method(118)
+    '''
+    root_n = intsqrt(N)
+    a = root_n
+    while True:
+        a = a+1
+        b_2 = a*a - N
+        b = intsqrt(b_2)
+        if b*b - b_2 == 0:
+            print(a)
+            print(b)
+            return a
+
+
+def gcd(x,y):
+    '''
+
+    Args:
+        x:
+        y:
+
+    Returns:
+    >>> N = 367160330145890434494322103
+    >>> a = 67469780066325164
+    >>> b = 9429601150488992
+    >>> (a*a - b*b) % N == 0
+    True
+    >>> N % gcd(a-b, N) == 0
+    True
+    '''
+    return x if y == 0 else gcd(y, x % y)
+
 ## Task 1
 def int2GF2(i):
     '''
@@ -29,7 +68,7 @@ def int2GF2(i):
         >>> int2GF2(100)
         0
     '''
-    pass
+    return 0 if i%2 == 0 else one
 
 ## Task 2
 def make_Vec(primeset, factors):
