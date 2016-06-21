@@ -125,7 +125,17 @@ def find_candidates(N, primeset):
                 Vec(D,{2: one, 3: one, 13: one})])
         True
     '''
-    pass
+    roots = []
+    rowlist = []
+    i = 2
+    while len(roots) < (len(primeset)+1):
+        x = intsqrt(N) + i
+        i = i+1
+        factors = dumb_factor(x*x-N, primeset)
+        if not factors == []:
+            roots.append(x)
+            rowlist.append(make_Vec(primeset, factors))
+    return (roots, rowlist)
 
 
 
