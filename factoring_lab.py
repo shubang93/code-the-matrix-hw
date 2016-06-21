@@ -160,7 +160,13 @@ def find_a_and_b(v, roots, N):
         >>> find_a_and_b(v, roots, N)
         (4081, 1170)
     '''
-    pass
+    alist = [roots[i] for i in range(len(v.D)) if v[i]!=0]
+    a = prod(alist)
+    c = prod([x*x-N for x in alist])
+    b = intsqrt(c)
+    assert b*b == c
+    return (a,b)
+
 
 ## Task 5
 
