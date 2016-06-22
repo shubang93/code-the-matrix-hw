@@ -10,6 +10,7 @@ from factoring_support import intsqrt
 from factoring_support import gcd
 from factoring_support import primes
 from factoring_support import prod
+from matutil import mat2rowdict
 
 import echelon
 
@@ -169,5 +170,20 @@ def find_a_and_b(v, roots, N):
 
 
 ## Task 5
-
+def task_5():
+    '''
+    Returns:
+    >>> task_5()
+    '''
+    N = 2419 #2461799993978700679
+    primelist = primes(1000)
+    (roots, rowlist) = find_candidates(N, primelist)
+    M = echelon.transformation_rows(rowlist)
+    for v in reversed(M):
+        (a,b) = find_a_and_b(v, roots, N)
+        if not ((a-b)==N) and (a-b)%N==0:
+            print(a)
+            print(b)
+            print(a-b)
+            break
 nontrivial_divisor_of_2461799993978700679 = ... 
